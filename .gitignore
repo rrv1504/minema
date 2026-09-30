@@ -1,0 +1,24 @@
+# JavaScript dependencies and builds
+node_modules/
+dist/
+
+# Python environments, caches, downloaded datasets, and generated models
+.venv/
+__pycache__/
+*.py[cod]
+ml-service/data/
+ml-service/models/*.joblib
+
+# Secrets
+.env
+backend/.env
+
+# Local process output
+*.log
+*.err.log
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

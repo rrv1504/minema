@@ -1,0 +1,356 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+
+  /* Cinematic Dark Theme - Deep blacks, charcoal, midnight blue */
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+
+  /* Glassmorphic cards */
+  --card: rgba(26, 26, 26, 0.7);
+  --card-foreground: #f5f5f5;
+  --popover: rgba(26, 26, 26, 0.9);
+  --popover-foreground: #f5f5f5;
+
+  /* Neon Red primary accent */
+  --primary: #ff0033;
+  --primary-foreground: #ffffff;
+
+  /* Electric Purple secondary */
+  --secondary: #a855f7;
+  --secondary-foreground: #ffffff;
+
+  /* Gold accent */
+  --gold: #d4af37;
+  --gold-foreground: #0a0a0a;
+
+  /* Muted/subtle colors */
+  --muted: rgba(42, 42, 42, 0.5);
+  --muted-foreground: #a1a1aa;
+  --accent: rgba(168, 85, 247, 0.15);
+  --accent-foreground: #f5f5f5;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Borders with subtle glow */
+  --border: rgba(168, 85, 247, 0.2);
+  --input: rgba(255, 255, 255, 0.1);
+  --input-background: rgba(26, 26, 26, 0.6);
+  --switch-background: #3f3f46;
+
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+
+  --ring: rgba(255, 0, 51, 0.5);
+
+  --chart-1: #ff0033;
+  --chart-2: #a855f7;
+  --chart-3: #d4af37;
+  --chart-4: #3b82f6;
+  --chart-5: #10b981;
+
+  --radius: 0.75rem;
+
+  --sidebar: rgba(10, 10, 10, 0.95);
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #ff0033;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(168, 85, 247, 0.15);
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: rgba(168, 85, 247, 0.2);
+  --sidebar-ring: rgba(255, 0, 51, 0.5);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --card: rgba(26, 26, 26, 0.7);
+  --card-foreground: #f5f5f5;
+  --popover: rgba(26, 26, 26, 0.9);
+  --popover-foreground: #f5f5f5;
+  --primary: #ff0033;
+  --primary-foreground: #ffffff;
+  --secondary: #a855f7;
+  --secondary-foreground: #ffffff;
+  --muted: rgba(42, 42, 42, 0.5);
+  --muted-foreground: #a1a1aa;
+  --accent: rgba(168, 85, 247, 0.15);
+  --accent-foreground: #f5f5f5;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(168, 85, 247, 0.2);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: rgba(255, 0, 51, 0.5);
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+  --chart-1: #ff0033;
+  --chart-2: #a855f7;
+  --chart-3: #d4af37;
+  --chart-4: #3b82f6;
+  --chart-5: #10b981;
+  --sidebar: rgba(10, 10, 10, 0.95);
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #ff0033;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(168, 85, 247, 0.15);
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: rgba(168, 85, 247, 0.2);
+  --sidebar-ring: rgba(255, 0, 51, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(
+    --sidebar-primary-foreground
+  );
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(
+    --sidebar-accent-foreground
+  );
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+/* Cinematic Glassmorphism Utilities */
+@layer components {
+  .glass-card {
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+  }
+
+  .glass-card-light {
+    background: rgba(26, 26, 26, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+  }
+
+  .glow-red {
+    box-shadow:
+      0 0 20px rgba(255, 0, 51, 0.3),
+      0 0 40px rgba(255, 0, 51, 0.1);
+  }
+
+  .glow-purple {
+    box-shadow:
+      0 0 20px rgba(168, 85, 247, 0.3),
+      0 0 40px rgba(168, 85, 247, 0.1);
+  }
+
+  .glow-gold {
+    box-shadow:
+      0 0 20px rgba(212, 175, 55, 0.3),
+      0 0 40px rgba(212, 175, 55, 0.1);
+  }
+
+  .glow-green {
+    box-shadow:
+      0 0 20px rgba(16, 185, 129, 0.3),
+      0 0 40px rgba(16, 185, 129, 0.1);
+  }
+
+  .cinema-poster {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .cinema-poster:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 20px 40px rgba(255, 0, 51, 0.2),
+      0 0 30px rgba(168, 85, 247, 0.15);
+  }
+
+  .cinema-poster::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 0, 51, 0.1) 0%,
+      rgba(168, 85, 247, 0.1) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .cinema-poster:hover::before {
+    opacity: 1;
+  }
+
+  .gradient-button {
+    background: linear-gradient(
+      135deg,
+      #ff0033 0%,
+      #cc0029 100%
+    );
+    color: #ffffff;
+    border: 1px solid rgba(255, 0, 51, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 0, 51, 0.2);
+  }
+
+  .gradient-button:hover {
+    background: linear-gradient(
+      135deg,
+      #ff1a47 0%,
+      #e6003d 100%
+    );
+    box-shadow: 0 6px 20px rgba(255, 0, 51, 0.3);
+  }
+
+  /* force text visibility */
+  .gradient-button,
+  .gradient-button:hover,
+  .gradient-button:focus {
+    color: #ffffff !important;
+  }
+
+  /* ensure text stays visible */
+  .gradient-button span,
+  .gradient-button svg {
+    position: relative;
+    z-index: 2;
+  }
+
+  .vignette {
+    position: relative;
+  }
+
+  .vignette::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      rgba(10, 10, 10, 0.4) 70%,
+      rgba(10, 10, 10, 0.8) 100%
+    );
+    pointer-events: none;
+  }
+
+  .spotlight {
+    position: relative;
+  }
+
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 0, 51, 0.15) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
