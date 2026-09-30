@@ -31,7 +31,7 @@ export const MOOD_CONFIG: Record<Mood, MoodConfig> = {
     bgClass: 'bg-pink-500/10',
     textClass: 'text-pink-400',
     glowColor: 'rgba(236,72,153,0.35)',
-    genres: ['Romance', 'Drama'],
+    genres: ['Romance'],
     description: 'In the mood for love and deep emotion',
     tagline: 'Feel all the feels',
   },

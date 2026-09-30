@@ -4,7 +4,7 @@ from risk import compute_cancellation_risk
 from recommendation_model import ContentBasedMovieRecommender
 
 MOOD_GENRES = {
-    "pumped": ["Action", "Thriller", "Adventure"], "romantic": ["Romance", "Drama"],
+    "pumped": ["Action", "Thriller", "Adventure"], "romantic": ["Romance"],
     "mysterious": ["Mystery", "Thriller", "Sci-Fi"], "adventurous": ["Adventure", "Fantasy", "Sci-Fi"],
     "chill": ["Comedy", "Romance", "Drama"], "epic": ["Fantasy", "Sci-Fi", "Action"],
 }
@@ -63,8 +63,18 @@ def build_recommendations(user_id: str, group_size: int, mood_distribution: dict
         if bonus: reasons.append(str(movie.get("rating")) + " rating bonus applied")
         if user_booking_genres and model_score >= 50:
             reasons.append("Content-based model found a strong match with your booking history")
-        recommendations.append({"movieId": str(movie["id"]), "totalScore": total_score, "moodScore": mood_score, "personalScore": personal_score, "popularityScore": popularity_score, "modelScore": model_score, "reasons": reasons})
-    # The requested explainable score remains primary; the trained content model
-    # resolves equal scores using a user's full genre profile.
-    recommendations.sort(key=lambda item: (-item["totalScore"], -item["modelScore"], -item["moodScore"], item["movieId"]))
+        recommendations.append({"movieId": str(movie["id"]), "totalScore": total_score, "moodScore": mood_score, "personalScore": personal_score, "popularityScore": popularity_score, "modelScore": model_score, "isDirectMoodMatch": dominant_score == 40, "reasons": reasons})
+
+    # When the group has a clear mood consensus, do not let one user's history
+    # push an unrelated film above an explicit group mood match.
+    prioritize_direct_mood_matches = consensus_percent >= 60 and any(item["isDirectMoodMatch"] for item in recommendations)
+    recommendations.sort(key=lambda item: (
+        0 if not prioritize_direct_mood_matches or item["isDirectMoodMatch"] else 1,
+        -item["totalScore"],
+        -item["modelScore"],
+        -item["moodScore"],
+        item["movieId"],
+    ))
+    for item in recommendations:
+        item.pop("isDirectMoodMatch")
     return {"recommendations": recommendations, "dominantMood": dominant_mood, "consensusPercent": consensus_percent, "recommendationModel": content_model.name, "cancellationRisk": compute_cancellation_risk(recommendations[0]["totalScore"], consensus_percent, group_size)}

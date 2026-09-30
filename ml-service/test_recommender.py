@@ -21,5 +21,15 @@ class RecommendationTests(unittest.TestCase):
         self.assertGreater(scores["romance"], scores["action"])
         self.assertIn("TF-IDF content-based cosine similarity", result["recommendationModel"])
 
+    def test_strong_romantic_consensus_outranks_booked_drama(self):
+        result = build_recommendations(
+            "user-3", 8,
+            {"romantic": 8, "pumped": 0, "mysterious": 0, "adventurous": 0, "chill": 0, "epic": 0},
+            [{"id": "romance", "title": "The Lunchbox", "genre": "Romance", "rating": "UA", "totalBookings": 0},
+             {"id": "drama", "title": "Gully Boy", "genre": "Drama", "rating": "UA", "totalBookings": 10}],
+            ["Drama"]
+        )
+        self.assertEqual(result["recommendations"][0]["movieId"], "romance")
+
 if __name__ == "__main__":
     unittest.main()

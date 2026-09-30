@@ -66,7 +66,7 @@ From the backend directory:
 npm run seed
 ~~~
 
-This creates 10 movies, 4 halls, 8 snacks, 10 bookings, operating hours, an admin, and demo users.
+This creates 10 Indian movies, 4 halls, 8 snacks, 10 bookings, operating hours, an admin, and demo users.
 
 Warning: npm run seed clears Minema collections before recreating them. Do not run it if you need to preserve current local bookings.
 

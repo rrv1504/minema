@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "start:all": "concurrently -n frontend,backend,ml -c cyan,green,magenta \"npm run dev\" \"npm run dev --prefix backend\" \"ml-service\\.venv\\Scripts\\python.exe -m uvicorn main:app --reload --port 8000 --app-dir ml-service\""
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -67,6 +68,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "4.1.12",
     "@vitejs/plugin-react": "4.7.0",
+    "concurrently": "^9.1.2",
     "tailwindcss": "4.1.12",
     "vite": "6.3.5"
   },
